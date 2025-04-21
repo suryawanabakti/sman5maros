@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Models;
+
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Beasiswa extends Model
+{
+    use HasFactory;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'beasiswa';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nama',
+        'deskripsi',
+        'kuota',
+        'gambar',
+        'deadline',
+        'persyaratan',
+        'status',
+    ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'deadline' => 'date',
+        'persyaratan' => 'array'
+    ];
+
+    /**
+     * Get the URL for the beasiswa's image.
+     *
+     * @return string
+     */
+    protected function deadline(): Attribute
+    {
+        return Attribute::make(
+            get: fn($value) => Carbon::createFromDate($value)->format('Y-m-d'),
+        );
+    }
+    public function getGambarUrlAttribute()
+    {
+        if ($this->gambar) {
+            return asset('storage/' . $this->gambar);
+        }
+
+        return '/placeholder.svg?height=200&width=300';
+    }
+}
