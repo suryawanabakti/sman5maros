@@ -78,7 +78,7 @@ export default function BeasiswaPage({ beasiswaData }: any) {
                                 >
                                     <div className="relative h-48 overflow-hidden md:h-auto md:w-1/3">
                                         <img
-                                            src={beasiswa.gambar || '/placeholder.svg'}
+                                            src={`/storage/${beasiswa.gambar}`}
                                             alt={beasiswa.nama}
                                             className="object-cover transition-transform duration-500 group-hover:scale-110"
                                         />

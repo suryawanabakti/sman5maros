@@ -1,10 +1,7 @@
 'use client';
 
-import { BeasiswaSection } from '@/components/landing/beasiswa-section';
-import { CTASection } from '@/components/landing/cta-section';
 import { EkstrakurikulerSection } from '@/components/landing/ekstrakurikuler-section';
 import { HeroSection } from '@/components/landing/hero-section';
-import { LowonganSection } from '@/components/landing/lowongan-section';
 import MainLayout from '@/layouts/MainLayout';
 import { Head } from '@inertiajs/react';
 
@@ -59,10 +56,10 @@ export default function LandingPage({ alumniData, beasiswaData, lowonganPekerjaa
             <HeroSection />
             {/* <StatsSection /> */}
             {/* <AlumniSection alumniData={alumniData} /> */}
-            <BeasiswaSection beasiswaData={beasiswaData} />
-            <LowonganSection lowonganPekerjaanData={lowonganPekerjaanData} />
+            {/* <BeasiswaSection beasiswaData={beasiswaData} />
+            <LowonganSection lowonganPekerjaanData={lowonganPekerjaanData} /> */}
             <EkstrakurikulerSection ekstrakurikulerData={ekstrakurikulerData} />
-            <CTASection />
+            {/* <CTASection /> */}
         </MainLayout>
     );
 }
